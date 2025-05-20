@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
   return (
@@ -8,7 +9,7 @@ const Hero = () => {
       <div className="md:w-1/2 space-y-6">
         <div>
           <h1 className="text-5xl md:text-6xl font-bold">
-            <span className="text-red-500">Hello,</span> I'm Srinadh
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Hello,</span> I'm Srinadh
           </h1>
           <h2 className="text-3xl md:text-4xl font-bold mt-2">
             Full-Stack Developer
@@ -26,14 +27,14 @@ const Hero = () => {
         <div className="flex flex-wrap gap-4 pt-4">
           <a 
             href="#contact" 
-            className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition inline-flex items-center"
+            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-md transition inline-flex items-center shadow-lg"
           >
             Contact Me
           </a>
           
           <a 
             href="#projects" 
-            className="border border-gray-700 hover:border-gray-500 px-6 py-3 rounded-md transition inline-flex items-center"
+            className="border border-purple-500 hover:border-pink-500 px-6 py-3 rounded-md transition inline-flex items-center hover:bg-purple-900/20"
           >
             View Projects <ArrowRight className="ml-2 h-4 w-4" />
           </a>
@@ -44,7 +45,7 @@ const Hero = () => {
             href="https://github.com/PagadalaSrinadh1"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition"
+            className="text-gray-400 hover:text-purple-500 transition"
           >
             <svg role="img" viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <title>GitHub</title>
@@ -56,7 +57,7 @@ const Hero = () => {
             href="https://www.linkedin.com/in/pagadala-srinadh-66473b292/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition"
+            className="text-gray-400 hover:text-purple-500 transition"
           >
             <svg role="img" viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <title>LinkedIn</title>
@@ -68,10 +69,13 @@ const Hero = () => {
       
       <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
         <div className="relative">
-          <div className="absolute -inset-1 bg-red-500 rounded-full opacity-75 blur"></div>
-          <div className="relative bg-black rounded-full overflow-hidden h-64 w-64 md:h-80 md:w-80 border-4 border-gray-800">
-            {/* This would be your profile image */}
-            <div className="h-full w-full flex items-center justify-center text-6xl font-bold text-red-500">S</div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-75 blur-xl"></div>
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-purple-900 shadow-2xl">
+            <img 
+              src="https://iili.io/3sISG0x.jpg" 
+              alt="Srinadh Pagadala" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>

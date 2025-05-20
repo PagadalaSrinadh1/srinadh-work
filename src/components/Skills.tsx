@@ -20,18 +20,18 @@ const Skills = () => {
   return (
     <section id="skills" className="py-16 md:py-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold">My Skills</h2>
+        <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent inline-block">My Skills</h2>
         <p className="text-gray-400 mt-2">Technologies and expertise I work with</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skills.map((skill) => (
-          <Card key={skill.name} className="bg-gray-900 border-gray-800">
+          <Card key={skill.name} className="bg-gray-900/50 backdrop-blur-sm border border-purple-900/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
             <CardContent className="p-6">
               <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
               <div className="w-full bg-gray-700 rounded-full h-2.5">
                 <div 
-                  className="bg-red-500 h-2.5 rounded-full" 
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 h-2.5 rounded-full" 
                   style={{ width: `${skill.level}%` }}
                 ></div>
               </div>
@@ -42,10 +42,10 @@ const Skills = () => {
       </div>
 
       <div className="mt-16">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8">Specific Areas of Interest</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent inline-block">Specific Areas of Interest</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {areas.map((area, index) => (
-            <Card key={index} className="bg-gray-900 border-gray-800">
+            <Card key={index} className="bg-gray-900/50 backdrop-blur-sm border border-purple-900/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-3">{area.title}</h3>
                 <p className="text-gray-400">{area.description}</p>
