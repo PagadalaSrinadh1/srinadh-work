@@ -2,41 +2,82 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const roles = ["Full-Stack Developer", "UI/UX Designer", "Problem Solver"];
+  
   return (
-    <section id="home" className="py-16 md:py-24 flex flex-col-reverse md:flex-row items-center">
-      <div className="md:w-1/2 space-y-6">
+    <section id="home" className="py-24 md:py-32 flex flex-col-reverse md:flex-row items-center relative min-h-[90vh] justify-center">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 pointer-events-none"></div>
+      
+      {/* Content side */}
+      <div className={`md:w-1/2 space-y-8 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div>
-          <h1 className="text-5xl md:text-6xl font-bold">
-            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Hello,</span> I'm Srinadh
+          <div className="inline-block mb-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 px-4 py-1 rounded-full">
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Welcome to my portfolio
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-3">
+            <span className="block">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Hi,</span> I'm Srinadh
+            </span>
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2">
-            Full-Stack Developer
-          </h2>
-          <p className="text-2xl md:text-3xl font-bold text-gray-400 mt-2">
-            Based In India
+          
+          <div className="overflow-hidden h-14">
+            <div className="animate-slide">
+              {roles.map((role, index) => (
+                <h2 key={index} className="text-3xl md:text-4xl font-bold text-white h-14 flex items-center">
+                  {role}
+                </h2>
+              ))}
+            </div>
+          </div>
+          
+          <p className="text-xl md:text-2xl font-medium text-gray-400 mt-2">
+            Based in India
           </p>
         </div>
         
-        <p className="text-gray-400 md:text-lg max-w-lg">
+        <p className="text-gray-300 md:text-lg max-w-lg leading-relaxed">
           A passionate Computer Science Engineer with expertise in building scalable web applications 
-          and exploring cloud integration with Django projects.
+          and exploring cloud integration with Django projects. My focus is on creating elegant solutions
+          to complex problems.
         </p>
         
-        <div className="flex flex-wrap gap-4 pt-4">
+        <div className="flex flex-wrap gap-5 pt-4">
           <a 
             href="#contact" 
-            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-md transition inline-flex items-center shadow-lg"
+            className="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold rounded-lg"
           >
-            Contact Me
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500"></span>
+            <span className="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-pink-500 rounded-full opacity-30 group-hover:rotate-90 ease"></span>
+            <span className="relative text-white flex items-center">
+              Contact Me
+              <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </span>
           </a>
           
           <a 
             href="#projects" 
-            className="border border-purple-500 hover:border-pink-500 px-6 py-3 rounded-md transition inline-flex items-center hover:bg-purple-900/20"
+            className="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold text-white rounded-lg"
           >
-            View Projects <ArrowRight className="ml-2 h-4 w-4" />
+            <span className="absolute inset-0 w-full h-full transition duration-300 ease-out opacity-0 bg-gradient-to-br from-purple-500 to-pink-500 group-hover:opacity-100"></span>
+            <span className="absolute inset-0 w-full h-full border border-white/10 rounded-lg"></span>
+            <span className="relative flex items-center">
+              View Projects
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </span>
           </a>
         </div>
         
@@ -45,7 +86,7 @@ const Hero = () => {
             href="https://github.com/PagadalaSrinadh1"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-purple-500 transition"
+            className="text-gray-400 hover:text-blue-400 transition transform hover:scale-110"
           >
             <svg role="img" viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <title>GitHub</title>
@@ -57,7 +98,7 @@ const Hero = () => {
             href="https://www.linkedin.com/in/pagadala-srinadh-66473b292/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-purple-500 transition"
+            className="text-gray-400 hover:text-blue-400 transition transform hover:scale-110"
           >
             <svg role="img" viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <title>LinkedIn</title>
@@ -67,18 +108,49 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
+      <div className={`md:w-1/2 flex justify-center mb-8 md:mb-0 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '300ms' }}>
         <div className="relative">
-          <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-75 blur-xl"></div>
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-purple-900 shadow-2xl">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-70 blur-2xl animate-pulse"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-50 blur-xl"></div>
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
             <img 
               src="https://iili.io/3sISG0x.jpg" 
               alt="Srinadh Pagadala" 
               className="w-full h-full object-cover"
             />
           </div>
+          
+          <div className="absolute bottom-0 right-0 -mb-4 -mr-4">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-sm"></div>
+              <div className="relative bg-black py-2 px-4 rounded-full border border-white/10">
+                <span className="text-sm font-medium text-white">Available for work</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      
+      <style jsx>{`
+        @keyframes slide {
+          0%, 25% {
+            transform: translateY(0);
+          }
+          33%, 58% {
+            transform: translateY(-100%);
+          }
+          66%, 91% {
+            transform: translateY(-200%);
+          }
+          100% {
+            transform: translateY(-300%);
+          }
+        }
+        
+        .animate-slide {
+          animation: slide 10s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      `}</style>
     </section>
   );
 };

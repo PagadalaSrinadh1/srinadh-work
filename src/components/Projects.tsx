@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -9,71 +9,93 @@ const Projects = () => {
       title: "Personal Portfolio Website",
       description: "A responsive and modern portfolio site showcasing skills, projects, and achievements to recruiters.",
       technologies: ["HTML", "CSS", "JavaScript"],
-      imageSrc: "", // Placeholder for project image
+      imageSrc: "https://iili.io/3sIUxwl.webp", 
+      featured: true,
     },
     {
       title: "Cloud-Integrated Django Application",
       description: "Web application built with Django, integrated with cloud services for enhanced performance.",
       technologies: ["Python", "Django", "AWS"],
-      imageSrc: "", // Placeholder for project image
+      imageSrc: "https://iili.io/3sIUBTQ.webp", 
+      featured: false,
     },
     {
       title: "Responsive Web Dashboard",
       description: "Interactive dashboard with data visualization and responsive design for multiple device types.",
       technologies: ["React", "CSS", "JavaScript"],
-      imageSrc: "", // Placeholder for project image
+      imageSrc: "https://iili.io/3sIUDbj.webp", 
+      featured: false,
     }
   ];
 
   return (
-    <section id="projects" className="py-16 md:py-20">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold">My Projects</h2>
-        <p className="text-gray-400 mt-2">Showcasing my recent work</p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <Card key={index} className="bg-gray-900 border-gray-800 overflow-hidden flex flex-col">
-            <div className="h-48 bg-gray-800 flex items-center justify-center">
-              {project.imageSrc ? (
-                <img src={project.imageSrc} alt={project.title} className="w-full h-full object-cover" />
-              ) : (
-                <div className="text-gray-600 text-xl">Project Preview</div>
-              )}
-            </div>
-            <CardHeader>
-              <CardTitle>{project.title}</CardTitle>
-              <CardDescription className="text-gray-400">
-                {project.technologies.join(" • ")}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <p className="text-gray-300">{project.description}</p>
-            </CardContent>
-            <CardFooter className="border-t border-gray-800 flex justify-between">
-              <Button variant="ghost" className="text-gray-400 hover:text-white">
-                View Details <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="flex justify-center mt-12">
-        <div className="flex gap-4 items-center">
-          <div className="text-4xl font-bold text-red-500">400+</div>
-          <div className="text-lg">Hours of<br />Coding</div>
+    <section id="projects" className="py-16 md:py-24 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+      
+      <div className="relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent inline-block mb-4">Featured Projects</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-pink-500 to-indigo-500 mx-auto rounded-full"></div>
+          <p className="text-gray-300 mt-4 max-w-2xl mx-auto">Showcasing innovative solutions and creative implementations</p>
         </div>
-        <div className="w-px h-16 bg-gray-800 mx-8"></div>
-        <div className="flex gap-4 items-center">
-          <div className="text-4xl font-bold text-red-500">10+</div>
-          <div className="text-lg">Completed<br />Projects</div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {projects.map((project, index) => (
+            <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 overflow-hidden flex flex-col h-full transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 group">
+              <div className="h-48 overflow-hidden relative">
+                {project.imageSrc ? (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+                    <img src={project.imageSrc} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    {project.featured && (
+                      <div className="absolute top-3 right-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full z-20 flex items-center">
+                        <Star className="mr-1 h-3 w-3" /> Featured
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+                    <div className="text-gray-600 text-xl">Project Preview</div>
+                  </div>
+                )}
+              </div>
+              <CardHeader className="relative pb-2">
+                <div className="absolute left-0 top-0 w-full h-12 bg-gradient-to-b from-black to-transparent pointer-events-none"></div>
+                <CardTitle className="text-xl font-bold text-white">{project.title}</CardTitle>
+                <CardDescription className="text-gray-400 flex flex-wrap gap-2 mt-2">
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className="text-xs font-medium bg-gray-800 text-gray-300 px-2 py-1 rounded-full">{tech}</span>
+                  ))}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow py-2">
+                <p className="text-gray-300">{project.description}</p>
+              </CardContent>
+              <CardFooter className="border-t border-gray-800/50 pt-4">
+                <Button variant="ghost" className="text-indigo-400 hover:text-indigo-300 hover:bg-indigo-950/30 w-full justify-center group">
+                  View Project Details 
+                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
         </div>
-        <div className="w-px h-16 bg-gray-800 mx-8 hidden md:block"></div>
-        <div className="flex gap-4 items-center hidden md:flex">
-          <div className="text-4xl font-bold text-red-500">5+</div>
-          <div className="text-lg">Happy<br />Clients</div>
+
+        <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-20 mt-20 bg-gradient-to-r from-gray-900 to-black p-10 rounded-2xl border border-gray-800">
+          <div className="flex gap-4 items-center">
+            <div className="text-5xl font-bold bg-gradient-to-br from-blue-500 to-indigo-500 bg-clip-text text-transparent">400+</div>
+            <div className="text-lg text-gray-300">Hours of<br />Coding</div>
+          </div>
+          <div className="hidden md:block w-px h-20 bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-pink-500/30"></div>
+          <div className="flex gap-4 items-center">
+            <div className="text-5xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">10+</div>
+            <div className="text-lg text-gray-300">Completed<br />Projects</div>
+          </div>
+          <div className="hidden md:block w-px h-20 bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-pink-500/30"></div>
+          <div className="flex gap-4 items-center">
+            <div className="text-5xl font-bold bg-gradient-to-br from-pink-500 to-red-500 bg-clip-text text-transparent">5+</div>
+            <div className="text-lg text-gray-300">Happy<br />Clients</div>
+          </div>
         </div>
       </div>
     </section>
