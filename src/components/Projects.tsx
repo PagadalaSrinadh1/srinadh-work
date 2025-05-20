@@ -9,21 +9,21 @@ const Projects = () => {
       title: "Personal Portfolio Website",
       description: "A responsive and modern portfolio site showcasing skills, projects, and achievements to recruiters.",
       technologies: ["HTML", "CSS", "JavaScript"],
-      imageSrc: "https://iili.io/3sIUxwl.webp", 
+      imageSrc: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80", 
       featured: true,
     },
     {
       title: "Cloud-Integrated Django Application",
       description: "Web application built with Django, integrated with cloud services for enhanced performance.",
       technologies: ["Python", "Django", "AWS"],
-      imageSrc: "https://iili.io/3sIUBTQ.webp", 
+      imageSrc: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80", 
       featured: false,
     },
     {
       title: "Responsive Web Dashboard",
       description: "Interactive dashboard with data visualization and responsive design for multiple device types.",
       technologies: ["React", "CSS", "JavaScript"],
-      imageSrc: "https://iili.io/3sIUDbj.webp", 
+      imageSrc: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80", 
       featured: false,
     }
   ];
