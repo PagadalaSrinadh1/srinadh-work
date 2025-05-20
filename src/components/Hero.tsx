@@ -21,14 +21,14 @@ const Hero = () => {
       {/* Content side */}
       <div className={`md:w-1/2 space-y-8 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div>
-          <div className="inline-block mb-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 px-4 py-1 rounded-full">
-            <span className="text-sm font-medium bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <div className="inline-block mb-3 bg-gradient-to-r from-blue-400/20 to-purple-400/20 px-4 py-1 rounded-full">
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
               Welcome to my portfolio
             </span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-3">
             <span className="block">
-              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Hi,</span> I'm Srinadh
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Hi,</span> I'm Srinadh
             </span>
           </h1>
           
@@ -42,12 +42,12 @@ const Hero = () => {
             </div>
           </div>
           
-          <p className="text-xl md:text-2xl font-medium text-gray-400 mt-2">
+          <p className="text-xl md:text-2xl font-medium text-gray-300 mt-2">
             Based in India
           </p>
         </div>
         
-        <p className="text-gray-300 md:text-lg max-w-lg leading-relaxed">
+        <p className="text-gray-200 md:text-lg max-w-lg leading-relaxed">
           A passionate Computer Science Engineer with expertise in building scalable web applications 
           and exploring cloud integration with Django projects. My focus is on creating elegant solutions
           to complex problems.
@@ -58,8 +58,8 @@ const Hero = () => {
             href="#contact" 
             className="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold rounded-lg"
           >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500"></span>
-            <span className="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-pink-500 rounded-full opacity-30 group-hover:rotate-90 ease"></span>
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400"></span>
+            <span className="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-pink-400 rounded-full opacity-30 group-hover:rotate-90 ease"></span>
             <span className="relative text-white flex items-center">
               Contact Me
               <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@ const Hero = () => {
             href="#projects" 
             className="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold text-white rounded-lg"
           >
-            <span className="absolute inset-0 w-full h-full transition duration-300 ease-out opacity-0 bg-gradient-to-br from-purple-500 to-pink-500 group-hover:opacity-100"></span>
+            <span className="absolute inset-0 w-full h-full transition duration-300 ease-out opacity-0 bg-gradient-to-br from-purple-400 to-pink-400 group-hover:opacity-100"></span>
             <span className="absolute inset-0 w-full h-full border border-white/10 rounded-lg"></span>
             <span className="relative flex items-center">
               View Projects
@@ -86,7 +86,7 @@ const Hero = () => {
             href="https://github.com/PagadalaSrinadh1"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-400 transition transform hover:scale-110"
+            className="text-gray-300 hover:text-blue-300 transition transform hover:scale-110"
           >
             <svg role="img" viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <title>GitHub</title>
@@ -98,7 +98,7 @@ const Hero = () => {
             href="https://www.linkedin.com/in/pagadala-srinadh-66473b292/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-400 transition transform hover:scale-110"
+            className="text-gray-300 hover:text-blue-300 transition transform hover:scale-110"
           >
             <svg role="img" viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <title>LinkedIn</title>
@@ -110,8 +110,8 @@ const Hero = () => {
       
       <div className={`md:w-1/2 flex justify-center mb-8 md:mb-0 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '300ms' }}>
         <div className="relative">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-70 blur-2xl animate-pulse"></div>
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-50 blur-xl"></div>
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full opacity-70 blur-2xl animate-pulse"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full opacity-50 blur-xl"></div>
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
             <img 
               src="https://iili.io/3sISG0x.jpg" 
@@ -122,7 +122,7 @@ const Hero = () => {
           
           <div className="absolute bottom-0 right-0 -mb-4 -mr-4">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-sm"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-sm"></div>
               <div className="relative bg-black py-2 px-4 rounded-full border border-white/10">
                 <span className="text-sm font-medium text-white">Available for work</span>
               </div>
@@ -131,7 +131,8 @@ const Hero = () => {
         </div>
       </div>
       
-      <style jsx>{`
+      <style>
+        {`
         @keyframes slide {
           0%, 25% {
             transform: translateY(0);
@@ -150,7 +151,8 @@ const Hero = () => {
         .animate-slide {
           animation: slide 10s infinite cubic-bezier(0.4, 0, 0.2, 1);
         }
-      `}</style>
+        `}
+      </style>
     </section>
   );
 };
