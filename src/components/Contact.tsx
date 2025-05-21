@@ -45,7 +45,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
     <section id="contact" className="py-16 md:py-20">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold">Get In Touch</h2>
-        <p className="text-gray-400 mt-2">Have a project in mind? Let's talk!</p>
+        <p className="text-gray-300 mt-2">Have a project in mind? Let's talk!</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -61,7 +61,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
               </div>
               <div>
                 <h4 className="text-lg font-medium">Email</h4>
-                <p className="text-gray-300">pagadalasrinadhprofessional@gmail.com</p>
+                <p className="text-gray-200">pagadalasrinadhprofessional@gmail.com</p>
               </div>
             </div>
             
@@ -73,7 +73,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
               </div>
               <div>
                 <h4 className="text-lg font-medium">Phone</h4>
-                <p className="text-gray-300">+91 79896 12933</p>
+                <p className="text-gray-200">+91 79896 12933</p>
               </div>
             </div>
             
@@ -86,7 +86,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
               </div>
               <div>
                 <h4 className="text-lg font-medium">Location</h4>
-                <p className="text-gray-300">India</p>
+                <p className="text-gray-200">India</p>
               </div>
             </div>
           </div>
@@ -131,7 +131,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                   <Check className="h-16 w-16 mx-auto" />
                 </div>
                 <h4 className="text-xl font-semibold">Message Sent!</h4>
-                <p className="text-gray-300 mt-2">Thank you for your message. I'll get back to you soon!</p>
+                <p className="text-gray-200 mt-2">Thank you for your message. I'll get back to you soon!</p>
                 <Button 
                   className="mt-6 bg-red-500 hover:bg-red-600"
                   onClick={() => window.location.reload()}
@@ -143,7 +143,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
               <form onSubmit={handleSubmit} className="space-y-6" id="contact-form">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Your Name</Label>
+                    <Label htmlFor="name" className="text-gray-100">Your Name</Label>
                     <Input 
                       id="name"
                       name="name"
@@ -156,7 +156,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
+                    <Label htmlFor="email" className="text-gray-100">Email Address</Label>
                     <Input 
                       id="email"
                       name="email"
@@ -171,7 +171,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
+                  <Label htmlFor="subject" className="text-gray-100">Subject</Label>
                   <Input 
                     id="subject"
                     name="subject"
@@ -184,7 +184,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message" className="text-gray-100">Message</Label>
                   <Textarea 
                     id="message"
                     name="message"
