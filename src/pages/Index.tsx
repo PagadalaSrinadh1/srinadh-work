@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,12 +10,17 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import emailjs from "@emailjs/browser";
+import { FormData } from "@/components/Contact";
 
 const Index = () => {
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init("4dBOjTEbgPoo_6faE");
+    
     // Simulate loading
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -25,13 +29,40 @@ const Index = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent, formData: FormData) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "Thank you for your message. I'll get back to you soon!",
-    });
-    setContactSubmitted(true);
+    
+    try {
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
+      
+      // Send the email using EmailJS
+      await emailjs.send(
+        "service_52r955l", // Service ID
+        "template_tudjcnc", // Template ID
+        templateParams
+      );
+      
+      // Show success toast notification
+      toast({
+        title: "Message Sent",
+        description: "Thank you for your message. I'll get back to you soon!",
+      });
+      
+      setContactSubmitted(true);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send your message. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   if (isLoading) {

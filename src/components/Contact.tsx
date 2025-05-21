@@ -1,17 +1,45 @@
-
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import emailjs from "@emailjs/browser";
+import { Check } from "lucide-react";
 
 interface ContactProps {
-  onSubmit: (e: React.FormEvent) => void;
+  onSubmit: (e: React.FormEvent, formData: FormData) => void;
   submitted: boolean;
 }
 
+export interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 const Contact = ({ onSubmit, submitted }: ContactProps) => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    onSubmit(e, formData);
+  };
+
   return (
     <section id="contact" className="py-16 md:py-20">
       <div className="text-center mb-12">
@@ -99,9 +127,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
             {submitted ? (
               <div className="text-center py-8">
                 <div className="text-green-500 mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <Check className="h-16 w-16 mx-auto" />
                 </div>
                 <h4 className="text-xl font-semibold">Message Sent!</h4>
                 <p className="text-gray-400 mt-2">Thank you for your message. I'll get back to you soon!</p>
@@ -113,12 +139,15 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                 </Button>
               </div>
             ) : (
-              <form onSubmit={onSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" id="contact-form">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Your Name</Label>
                     <Input 
-                      id="name" 
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       placeholder="John Doe" 
                       required 
                       className="bg-gray-800 border-gray-700 focus:border-red-500" 
@@ -128,7 +157,10 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address</Label>
                     <Input 
-                      id="email" 
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       type="email" 
                       placeholder="john@example.com" 
                       required 
@@ -140,7 +172,10 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject</Label>
                   <Input 
-                    id="subject" 
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
                     placeholder="Project Inquiry" 
                     required 
                     className="bg-gray-800 border-gray-700 focus:border-red-500" 
@@ -150,15 +185,22 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
                   <Textarea 
-                    id="message" 
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Hello, I'd like to talk about..." 
                     required 
                     className="bg-gray-800 border-gray-700 focus:border-red-500 min-h-[120px]" 
                   />
                 </div>
                 
-                <Button type="submit" className="w-full bg-red-500 hover:bg-red-600">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  className="w-full bg-red-500 hover:bg-red-600"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             )}
