@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -60,7 +61,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
               </div>
               <div>
                 <h4 className="text-lg font-medium">Email</h4>
-                <p className="text-gray-400">pagadalasrinadhprofessional@gmail.com</p>
+                <p className="text-gray-300">pagadalasrinadhprofessional@gmail.com</p>
               </div>
             </div>
             
@@ -72,7 +73,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
               </div>
               <div>
                 <h4 className="text-lg font-medium">Phone</h4>
-                <p className="text-gray-400">+91 79896 12933</p>
+                <p className="text-gray-300">+91 79896 12933</p>
               </div>
             </div>
             
@@ -85,7 +86,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
               </div>
               <div>
                 <h4 className="text-lg font-medium">Location</h4>
-                <p className="text-gray-400">India</p>
+                <p className="text-gray-300">India</p>
               </div>
             </div>
           </div>
@@ -130,7 +131,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                   <Check className="h-16 w-16 mx-auto" />
                 </div>
                 <h4 className="text-xl font-semibold">Message Sent!</h4>
-                <p className="text-gray-400 mt-2">Thank you for your message. I'll get back to you soon!</p>
+                <p className="text-gray-300 mt-2">Thank you for your message. I'll get back to you soon!</p>
                 <Button 
                   className="mt-6 bg-red-500 hover:bg-red-600"
                   onClick={() => window.location.reload()}
