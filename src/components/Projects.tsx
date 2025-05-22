@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, ExternalLink } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -11,6 +11,7 @@ const Projects = () => {
       technologies: ["HTML", "CSS", "JavaScript"],
       imageSrc: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80", 
       featured: true,
+      projectUrl: "#", // Placeholder URL
     },
     {
       title: "Cloud-Integrated Django Application",
@@ -18,6 +19,7 @@ const Projects = () => {
       technologies: ["Python", "Django", "AWS"],
       imageSrc: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80", 
       featured: false,
+      projectUrl: "https://clouddjango.lovable.app/",
     },
     {
       title: "Responsive Web Dashboard",
@@ -25,6 +27,7 @@ const Projects = () => {
       technologies: ["React", "CSS", "JavaScript"],
       imageSrc: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80", 
       featured: false,
+      projectUrl: "#", // Placeholder URL
     }
   ];
 
@@ -72,10 +75,21 @@ const Projects = () => {
                 <p className="text-gray-300">{project.description}</p>
               </CardContent>
               <CardFooter className="border-t border-gray-800/50 pt-4">
-                <Button variant="ghost" className="text-indigo-400 hover:text-indigo-300 hover:bg-indigo-950/30 w-full justify-center group">
-                  View Project Details 
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                </Button>
+                {project.projectUrl !== "#" ? (
+                  <Button 
+                    variant="ghost" 
+                    className="text-indigo-400 hover:text-indigo-300 hover:bg-indigo-950/30 w-full justify-center group"
+                    onClick={() => window.open(project.projectUrl, "_blank")}
+                  >
+                    View Project Details 
+                    <ExternalLink className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                ) : (
+                  <Button variant="ghost" className="text-indigo-400 hover:text-indigo-300 hover:bg-indigo-950/30 w-full justify-center group">
+                    View Project Details 
+                    <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           ))}
