@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
@@ -35,9 +34,8 @@ const Skills = () => {
               <CardContent className="p-6 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10">
-                  <h3 className="text-xl font-bold mb-3 flex items-center justify-between text-white">
-                    <span>{skill.name}</span>
-                    <span className="text-sm font-normal bg-gradient-to-r from-blue-400 to-purple-400 text-white py-1 px-2 rounded-full">{skill.level}%</span>
+                  <h3 className="text-xl font-bold mb-3 text-white">
+                    {skill.name}
                   </h3>
                   <div className="w-full bg-gray-700 rounded-full h-3 mb-1 overflow-hidden">
                     <div 
