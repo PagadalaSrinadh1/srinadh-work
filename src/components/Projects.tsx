@@ -97,23 +97,6 @@ const Projects = () => {
             </Card>
           ))}
         </div>
-
-        <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-20 mt-20 bg-gradient-to-r from-gray-900 to-black p-10 rounded-2xl border border-gray-800">
-          <div className="flex gap-4 items-center">
-            <div className="text-5xl font-bold bg-gradient-to-br from-blue-500 to-indigo-500 bg-clip-text text-transparent">400+</div>
-            <div className="text-lg text-gray-300">Hours of<br />Coding</div>
-          </div>
-          <div className="hidden md:block w-px h-20 bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-pink-500/30"></div>
-          <div className="flex gap-4 items-center">
-            <div className="text-5xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">10+</div>
-            <div className="text-lg text-gray-300">Completed<br />Projects</div>
-          </div>
-          <div className="hidden md:block w-px h-20 bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-pink-500/30"></div>
-          <div className="flex gap-4 items-center">
-            <div className="text-5xl font-bold bg-gradient-to-br from-pink-500 to-red-500 bg-clip-text text-transparent">5+</div>
-            <div className="text-lg text-gray-300">Happy<br />Clients</div>
-          </div>
-        </div>
       </div>
     </section>
   );
