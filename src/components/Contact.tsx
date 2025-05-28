@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -120,19 +121,19 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
           </div>
         </div>
         
-        <Card className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 border-blue-500/20 backdrop-blur-sm">
-          <CardContent className="p-6 bg-gradient-to-b from-blue-900/10 to-transparent">
-            <h3 className="text-xl font-semibold mb-6 text-blue-100">Send Me a Message</h3>
+        <Card className="bg-gray-800/60 border-gray-700/50 backdrop-blur-sm hover:bg-gray-800/80 transition-all duration-300">
+          <CardContent className="p-6 bg-transparent">
+            <h3 className="text-xl font-semibold mb-6 text-white">Send Me a Message</h3>
             
             {submitted ? (
               <div className="text-center py-8">
-                <div className="text-blue-400 mb-4">
+                <div className="text-green-400 mb-4">
                   <Check className="h-16 w-16 mx-auto" />
                 </div>
-                <h4 className="text-xl font-semibold text-blue-100">Message Sent!</h4>
-                <p className="text-blue-200 mt-2">Thank you for your message. I'll get back to you soon!</p>
+                <h4 className="text-xl font-semibold text-white">Message Sent!</h4>
+                <p className="text-gray-300 mt-2">Thank you for your message. I'll get back to you soon!</p>
                 <Button 
-                  className="mt-6 bg-blue-600 hover:bg-blue-700 border border-blue-500"
+                  className="mt-6 bg-red-500 hover:bg-red-600 text-white border-none"
                   onClick={() => window.location.reload()}
                 >
                   Send Another Message
@@ -142,7 +143,7 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
               <form onSubmit={handleSubmit} className="space-y-6" id="contact-form">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-blue-100">Your Name</Label>
+                    <Label htmlFor="name" className="text-white">Your Name</Label>
                     <Input 
                       id="name"
                       name="name"
@@ -150,12 +151,12 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                       onChange={handleChange}
                       placeholder="John Doe" 
                       required 
-                      className="bg-blue-900/30 border-blue-600/40 focus:border-blue-400 text-blue-100 placeholder:text-blue-300" 
+                      className="bg-gray-700/50 border-gray-600 focus:border-red-400 text-white placeholder:text-gray-400" 
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-blue-100">Email Address</Label>
+                    <Label htmlFor="email" className="text-white">Email Address</Label>
                     <Input 
                       id="email"
                       name="email"
@@ -164,13 +165,13 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                       type="email" 
                       placeholder="john@example.com" 
                       required 
-                      className="bg-blue-900/30 border-blue-600/40 focus:border-blue-400 text-blue-100 placeholder:text-blue-300" 
+                      className="bg-gray-700/50 border-gray-600 focus:border-red-400 text-white placeholder:text-gray-400" 
                     />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-blue-100">Subject</Label>
+                  <Label htmlFor="subject" className="text-white">Subject</Label>
                   <Input 
                     id="subject"
                     name="subject"
@@ -178,12 +179,12 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                     onChange={handleChange}
                     placeholder="Project Inquiry" 
                     required 
-                    className="bg-blue-900/30 border-blue-600/40 focus:border-blue-400 text-blue-100 placeholder:text-blue-300" 
+                    className="bg-gray-700/50 border-gray-600 focus:border-red-400 text-white placeholder:text-gray-400" 
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-blue-100">Message</Label>
+                  <Label htmlFor="message" className="text-white">Message</Label>
                   <Textarea 
                     id="message"
                     name="message"
@@ -191,13 +192,13 @@ const Contact = ({ onSubmit, submitted }: ContactProps) => {
                     onChange={handleChange}
                     placeholder="Hello, I'd like to talk about..." 
                     required 
-                    className="bg-blue-900/30 border-blue-600/40 focus:border-blue-400 text-blue-100 placeholder:text-blue-300 min-h-[120px]" 
+                    className="bg-gray-700/50 border-gray-600 focus:border-red-400 text-white placeholder:text-gray-400 min-h-[120px]" 
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 border border-blue-500"
+                  className="w-full bg-red-500 hover:bg-red-600 text-white border-none"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
