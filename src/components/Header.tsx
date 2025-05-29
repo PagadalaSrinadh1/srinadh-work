@@ -15,7 +15,7 @@ const Header = () => {
             className="text-red-500 text-xl font-bold flex items-center"
           >
             <span className="bg-red-500 text-white px-2 py-1 rounded-md mr-2">SP</span>
-            Portfolio
+            Srinadh
           </Link>
         </div>
         
@@ -25,15 +25,6 @@ const Header = () => {
           <a href="#projects" className="text-gray-300 hover:text-white transition">Projects</a>
           <a href="#contact" className="text-gray-300 hover:text-white transition">Contact</a>
         </nav>
-        
-        <div className="hidden md:block">
-          <a 
-            href="#contact" 
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition"
-          >
-            Let's Talk
-          </a>
-        </div>
         
         <button 
           className="md:hidden text-gray-300"
@@ -79,13 +70,6 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
-            </a>
-            <a 
-              href="#contact" 
-              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition inline-block text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Let's Talk
             </a>
           </nav>
         </div>
