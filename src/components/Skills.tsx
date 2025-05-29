@@ -1,47 +1,82 @@
+
 import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
 
 const Skills = () => {
   const skills = [
-    { name: "Python", level: 90, color: "from-blue-500 to-indigo-600" },
-    { name: "HTML", level: 95, color: "from-orange-500 to-red-600" },
-    { name: "CSS", level: 85, color: "from-pink-500 to-rose-600" },
-    { name: "JavaScript", level: 80, color: "from-yellow-500 to-amber-600" },
-    { name: "Django", level: 75, color: "from-green-500 to-teal-600" },
-    { name: "React", level: 70, color: "from-purple-500 to-indigo-600" },
+    { name: "Python", level: 90, color: "from-blue-500 to-indigo-600", icon: "🐍" },
+    { name: "HTML", level: 95, color: "from-orange-500 to-red-600", icon: "🌐" },
+    { name: "CSS", level: 85, color: "from-pink-500 to-rose-600", icon: "🎨" },
+    { name: "JavaScript", level: 80, color: "from-yellow-500 to-amber-600", icon: "⚡" },
+    { name: "Django", level: 75, color: "from-green-500 to-teal-600", icon: "🔥" },
+    { name: "React", level: 70, color: "from-purple-500 to-indigo-600", icon: "⚛️" },
   ];
 
   const areas = [
-    { title: "Full-Stack Web Development", description: "Building responsive and dynamic web applications using modern technologies", icon: "💻" },
-    { title: "Building Scalable Web Applications", description: "Designing architecture for scalable and maintainable web applications", icon: "🔄" },
-    { title: "Cloud Integration", description: "Exploring cloud integration with Django projects for enhanced performance", icon: "☁️" }
+    { 
+      title: "Full-Stack Web Development", 
+      description: "Building responsive and dynamic web applications using modern technologies and best practices", 
+      icon: "💻",
+      gradient: "from-emerald-500 to-teal-500"
+    },
+    { 
+      title: "Scalable Architecture", 
+      description: "Designing robust architecture for scalable and maintainable web applications", 
+      icon: "🏗️",
+      gradient: "from-purple-500 to-pink-500"
+    },
+    { 
+      title: "Cloud Integration", 
+      description: "Exploring cloud services and deployment strategies for enhanced performance", 
+      icon: "☁️",
+      gradient: "from-blue-500 to-cyan-500"
+    }
   ];
 
   return (
-    <section id="skills" className="py-16 md:py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+    <section id="skills" className="py-20 md:py-28 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent pointer-events-none"></div>
       
       <div className="relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent inline-block mb-4">Technical Expertise</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-pink-400 mx-auto rounded-full"></div>
-          <p className="text-gray-200 mt-4 max-w-2xl mx-auto">Specialized skills and technologies I've mastered throughout my journey</p>
+        <div className="text-center mb-20">
+          <div className="inline-block mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+              Technical Expertise
+            </h2>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 mx-auto rounded-full shadow-lg shadow-emerald-400/30"></div>
+          </div>
+          <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
+            Specialized skills and cutting-edge technologies I've mastered throughout my development journey
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-24">
           {skills.map((skill, index) => (
-            <Card key={skill.name} className="bg-gray-800 border border-gray-700 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/10 overflow-hidden group">
-              <CardContent className="p-6 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <Card key={skill.name} className="group bg-white/5 backdrop-blur-xl border border-white/10 hover:border-emerald-400/30 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-400/10 overflow-hidden hover:-translate-y-2">
+              <CardContent className="p-8 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-teal-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
-                  <h3 className="text-xl font-bold mb-3 text-white">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                      {skill.icon}
+                    </div>
+                    <div className="text-2xl font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors">
+                      {skill.level}%
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-white group-hover:text-emerald-300 transition-colors">
                     {skill.name}
                   </h3>
-                  <div className="w-full bg-gray-700 rounded-full h-3 mb-1 overflow-hidden">
+                  <div className="w-full bg-gray-700/50 rounded-full h-3 mb-2 overflow-hidden backdrop-blur-sm">
                     <div 
-                      className={`bg-gradient-to-r ${skill.color} h-3 rounded-full transition-all duration-1000 ease-out`}
-                      style={{ width: `${skill.level}%` }}
+                      className={`bg-gradient-to-r ${skill.color} h-3 rounded-full transition-all duration-1000 ease-out shadow-lg`}
+                      style={{ 
+                        width: `${skill.level}%`,
+                        boxShadow: `0 0 20px rgba(16, 185, 129, 0.3)`
+                      }}
                     ></div>
+                  </div>
+                  <div className="text-xs text-gray-400 font-medium">
+                    Proficiency Level
                   </div>
                 </div>
               </CardContent>
@@ -50,16 +85,30 @@ const Skills = () => {
         </div>
 
         <div className="mt-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent inline-block">Specialized Focus Areas</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
+              Specialized Focus Areas
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {areas.map((area, index) => (
-              <Card key={index} className="bg-gray-800 border border-gray-700 group hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/10 overflow-hidden">
-                <CardContent className="p-8 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-purple-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative z-10">
-                    <div className="text-4xl mb-4">{area.icon}</div>
-                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-300 transition-colors">{area.title}</h3>
-                    <p className="text-gray-300 group-hover:text-gray-200 transition-colors">{area.description}</p>
+              <Card key={index} className="group bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-400/30 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-400/10 overflow-hidden hover:-translate-y-3">
+                <CardContent className="p-8 relative h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-400/5 to-pink-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 h-full flex flex-col">
+                    <div className="mb-6">
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${area.gradient} flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        {area.icon}
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-purple-300 transition-colors flex-shrink-0">
+                      {area.title}
+                    </h3>
+                    <p className="text-gray-300 group-hover:text-gray-200 transition-colors leading-relaxed flex-grow">
+                      {area.description}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -67,15 +116,6 @@ const Skills = () => {
           </div>
         </div>
       </div>
-      
-      <style>
-        {`
-        @keyframes growWidth {
-          from { width: 0; }
-          to { width: 100%; }
-        }
-        `}
-      </style>
     </section>
   );
 };
